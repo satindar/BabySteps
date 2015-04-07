@@ -15,10 +15,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
-            println("Object has been saved.")
+        let score = PFObject(className: "Score")
+        score.setObject("Satindar", forKey: "name")
+        score.setObject(100, forKey: "number")
+        score.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError!) -> Void in
+            if success == true {
+                println("Score created with ID \(score.objectId)")
+            } else {
+                println(error)
+            }
+            
         }
     }
 
