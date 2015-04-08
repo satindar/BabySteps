@@ -30,6 +30,8 @@
 		04BBC5FF1AD45FB3008C0ED2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BBC5FE1AD45FB3008C0ED2 /* SystemConfiguration.framework */; };
 		04BBC6011AD45FBE008C0ED2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BBC6001AD45FBE008C0ED2 /* libz.dylib */; };
 		04BBC6031AD45FCA008C0ED2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BBC6021AD45FCA008C0ED2 /* libsqlite3.dylib */; };
+		04BBC6051AD4A364008C0ED2 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BBC6041AD4A364008C0ED2 /* SignupViewController.swift */; };
+		04BBC6061AD4A364008C0ED2 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BBC6041AD4A364008C0ED2 /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,7 @@
 		04BBC5FE1AD45FB3008C0ED2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04BBC6001AD45FBE008C0ED2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04BBC6021AD45FCA008C0ED2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		04BBC6041AD4A364008C0ED2 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 			children = (
 				04BBC5C41AD45F0A008C0ED2 /* AppDelegate.swift */,
 				04BBC5C61AD45F0A008C0ED2 /* ViewController.swift */,
+				04BBC6041AD4A364008C0ED2 /* SignupViewController.swift */,
 				04BBC5C81AD45F0A008C0ED2 /* Main.storyboard */,
 				04BBC5CB1AD45F0A008C0ED2 /* Images.xcassets */,
 				04BBC5CD1AD45F0A008C0ED2 /* LaunchScreen.xib */,
@@ -282,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BBC6051AD4A364008C0ED2 /* SignupViewController.swift in Sources */,
 				04BBC5C71AD45F0A008C0ED2 /* ViewController.swift in Sources */,
 				04BBC5C51AD45F0A008C0ED2 /* AppDelegate.swift in Sources */,
 			);
@@ -291,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BBC6061AD4A364008C0ED2 /* SignupViewController.swift in Sources */,
 				04BBC5DB1AD45F0A008C0ED2 /* BabyStepsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
