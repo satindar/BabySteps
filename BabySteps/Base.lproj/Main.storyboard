@@ -100,13 +100,14 @@
                         <outlet property="password" destination="9gl-f1-oUh" id="c8p-LC-esy"/>
                         <outlet property="username" destination="aee-yh-xyw" id="frK-sq-yqO"/>
                         <segue destination="Kbn-sT-IWO" kind="show" identifier="Jump to User Table" id="fEV-0w-kvB"/>
+                        <segue destination="Xhu-PE-a2Z" kind="show" identifier="List of Babies I Know" id="n5v-Yd-ffo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57H-sQ-gv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="45" y="673"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Who Cares for Baby?-->
         <scene sceneID="4Iu-Tb-l7B">
             <objects>
                 <tableViewController id="MZg-mG-cQ8" customClass="UserTableViewController" customModule="BabySteps" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,11 +128,54 @@
                             <outlet property="delegate" destination="MZg-mG-cQ8" id="c06-ZK-0pa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="PKC-cd-iak"/>
+                    <navigationItem key="navigationItem" title="Who Cares for Baby?" id="PKC-cd-iak"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEQ-eq-ChI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="861" y="1457"/>
+        </scene>
+        <!--Babies I Know-->
+        <scene sceneID="abV-AR-YU2">
+            <objects>
+                <tableViewController id="tZL-K7-kqp" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gbY-iP-xnc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="J9f-Hm-Bvn">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J9f-Hm-Bvn" id="TTP-oy-tJo">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tZL-K7-kqp" id="lNr-ih-RRg"/>
+                            <outlet property="delegate" destination="tZL-K7-kqp" id="W69-KW-KrB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Babies I Know" id="oXD-JL-Zsv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5J-dQ-q4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1528" y="678"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ufP-8i-4Md">
+            <objects>
+                <navigationController id="Xhu-PE-a2Z" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Be2-3h-gt0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="tZL-K7-kqp" kind="relationship" relationship="rootViewController" id="pL3-aL-7Zb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fT4-fD-2Be" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713" y="673"/>
         </scene>
         <!--Nav Controller-->
         <scene sceneID="SMr-T9-8BW">

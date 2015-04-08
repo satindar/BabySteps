@@ -12,6 +12,7 @@ import Parse
 class SignupViewController: UIViewController {
     private struct Storyboard {
         static let UserTableSegueID = "Jump to User Table"
+        static let BabyListTableSegueID = "List of Babies I Know"
     }
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -28,7 +29,6 @@ class SignupViewController: UIViewController {
             user.username = username.text
             user.password = password.text
             
-            
             displaySpinner()
             
             user.signUpInBackgroundWithBlock {
@@ -38,14 +38,17 @@ class SignupViewController: UIViewController {
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 if signupError == nil {
-                    // create the baby relation
                     if self.babyName.text != "" {
                         var baby = PFObject(className: "Baby")
                         baby["name"] = self.babyName.text
                         baby["parent"] = user
                         baby.save()
+                        // direct to tableView where parent can allow people to follow baby
+                        self.performSegueWithIdentifier(Storyboard.UserTableSegueID, sender: self)
+                    } else {
+                        self.performSegueWithIdentifier(Storyboard.BabyListTableSegueID, sender: self)
                     }
-                    self.performSegueWithIdentifier(Storyboard.UserTableSegueID, sender: self)
+                    
                 } else {
                     if let errorString = signupError.userInfo?["error"] as? NSString {
                         error = errorString
