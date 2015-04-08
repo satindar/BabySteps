@@ -14,8 +14,15 @@ class UserTableViewController: UITableViewController {
         static let PhotoCellId = "Photo Cell"
     }
     
+    var users = [String]()
+    
     override func viewDidLoad() {
-        println(PFUser.currentUser())
+        var query = PFUser.query()
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            self.users.removeAll(keepCapacity: true)
+            self.users = objects.map { ($0 as PFUser).username }
+            self.tableView.reloadData()
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -23,14 +30,12 @@ class UserTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return users.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(Storyboard.PhotoCellId) as UITableViewCell
-        
-        cell.textLabel?.text = "Satindar"
-        
+        cell.textLabel?.text = users[indexPath.row]
         return cell
     }
 }
