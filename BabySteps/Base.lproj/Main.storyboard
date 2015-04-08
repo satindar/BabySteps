@@ -30,8 +30,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baby Steps!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4o-aa-TsY">
+                                <rect key="frame" x="234" y="28" width="133" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5p-IK-RUB">
-                                <rect key="frame" x="273" y="142" width="55" height="30"/>
+                                <rect key="frame" x="273" y="209" width="55" height="30"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -39,20 +45,14 @@
                                     <action selector="signup:" destination="TXX-P4-tyy" eventType="touchUpInside" id="ASG-Ek-pFz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baby Steps!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4o-aa-TsY">
-                                <rect key="frame" x="234" y="28" width="133" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbi-V3-e0h">
-                                <rect key="frame" x="291" y="180" width="18" height="15"/>
+                                <rect key="frame" x="291" y="247" width="18" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUR-Pu-WbW">
-                                <rect key="frame" x="281" y="203" width="38" height="30"/>
+                                <rect key="frame" x="281" y="270" width="38" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -60,31 +60,43 @@
                                     <action selector="login:" destination="TXX-P4-tyy" eventType="touchUpInside" id="OnQ-dk-RN4"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Baby Name (for parents)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="suZ-UJ-1Iy">
+                                <rect key="frame" x="201" y="142" width="200" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="x5p-IK-RUB" firstAttribute="top" secondItem="suZ-UJ-1Iy" secondAttribute="bottom" constant="37" id="0Km-A9-DEz"/>
                             <constraint firstItem="nbi-V3-e0h" firstAttribute="top" secondItem="x5p-IK-RUB" secondAttribute="bottom" constant="8" symbolic="YES" id="17L-Me-8is"/>
                             <constraint firstAttribute="centerX" secondItem="nbi-V3-e0h" secondAttribute="centerX" id="3wU-bV-IqF"/>
                             <constraint firstItem="t4o-aa-TsY" firstAttribute="top" secondItem="A8n-b8-8An" secondAttribute="bottom" priority="750" constant="8" symbolic="YES" id="768-io-IaN"/>
                             <constraint firstItem="t4o-aa-TsY" firstAttribute="centerX" secondItem="Hv5-wL-cpw" secondAttribute="centerX" id="7yt-sv-e7U"/>
                             <constraint firstItem="aee-yh-xyw" firstAttribute="top" secondItem="t4o-aa-TsY" secondAttribute="bottom" constant="8" symbolic="YES" id="8qM-lg-TmE"/>
+                            <constraint firstAttribute="centerX" secondItem="suZ-UJ-1Iy" secondAttribute="centerX" constant="-0.5" id="GHU-PU-bIw"/>
                             <constraint firstItem="t4o-aa-TsY" firstAttribute="centerX" secondItem="aee-yh-xyw" secondAttribute="centerX" id="J1u-z1-Xza"/>
                             <constraint firstAttribute="centerX" secondItem="UUR-Pu-WbW" secondAttribute="centerX" id="OoL-11-25k"/>
                             <constraint firstItem="9gl-f1-oUh" firstAttribute="centerX" secondItem="x5p-IK-RUB" secondAttribute="centerX" id="P9o-Fp-gFh"/>
                             <constraint firstItem="9gl-f1-oUh" firstAttribute="top" secondItem="aee-yh-xyw" secondAttribute="bottom" constant="8" symbolic="YES" id="S7U-7Y-fJm"/>
+                            <constraint firstItem="suZ-UJ-1Iy" firstAttribute="top" secondItem="9gl-f1-oUh" secondAttribute="bottom" constant="8" id="WQU-ST-b3D"/>
+                            <constraint firstItem="suZ-UJ-1Iy" firstAttribute="height" secondItem="9gl-f1-oUh" secondAttribute="height" id="bPA-j1-3IA"/>
                             <constraint firstItem="t4o-aa-TsY" firstAttribute="leading" secondItem="Hv5-wL-cpw" secondAttribute="leadingMargin" constant="131" id="dKD-jk-zJH"/>
                             <constraint firstItem="UUR-Pu-WbW" firstAttribute="top" secondItem="nbi-V3-e0h" secondAttribute="bottom" constant="8" id="ejA-G1-Gzl"/>
                             <constraint firstItem="aee-yh-xyw" firstAttribute="leading" secondItem="9gl-f1-oUh" secondAttribute="leading" id="hfY-oy-2B7"/>
+                            <constraint firstItem="suZ-UJ-1Iy" firstAttribute="width" secondItem="9gl-f1-oUh" secondAttribute="width" id="sfD-HC-x1p"/>
                             <constraint firstItem="x5p-IK-RUB" firstAttribute="top" secondItem="9gl-f1-oUh" secondAttribute="bottom" constant="8" symbolic="YES" id="w1X-KA-jnv"/>
                             <constraint firstItem="9gl-f1-oUh" firstAttribute="trailing" secondItem="aee-yh-xyw" secondAttribute="trailing" id="xmK-Me-yEL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="dKD-jk-zJH"/>
+                                <exclude reference="w1X-KA-jnv"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="babyName" destination="suZ-UJ-1Iy" id="hPp-9R-KZt"/>
                         <outlet property="password" destination="9gl-f1-oUh" id="c8p-LC-esy"/>
                         <outlet property="username" destination="aee-yh-xyw" id="frK-sq-yqO"/>
                         <segue destination="Kbn-sT-IWO" kind="show" identifier="Jump to User Table" id="fEV-0w-kvB"/>
@@ -92,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57H-sQ-gv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="724"/>
+            <point key="canvasLocation" x="45" y="673"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="4Iu-Tb-l7B">

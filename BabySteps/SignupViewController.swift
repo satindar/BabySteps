@@ -18,6 +18,7 @@ class SignupViewController: UIViewController {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var babyName: UITextField!
     
     @IBAction func signup(sender: UIButton) {
         var error = validateForm()
@@ -26,6 +27,7 @@ class SignupViewController: UIViewController {
             var user = PFUser()
             user.username = username.text
             user.password = password.text
+            
             
             displaySpinner()
             
@@ -36,6 +38,13 @@ class SignupViewController: UIViewController {
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 if signupError == nil {
+                    // create the baby relation
+                    if self.babyName.text != "" {
+                        var baby = PFObject(className: "Baby")
+                        baby["name"] = self.babyName.text
+                        baby["parent"] = user
+                        baby.save()
+                    }
                     self.performSegueWithIdentifier(Storyboard.UserTableSegueID, sender: self)
                 } else {
                     if let errorString = signupError.userInfo?["error"] as? NSString {
