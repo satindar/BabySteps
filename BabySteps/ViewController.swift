@@ -31,25 +31,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 //        self.presentViewController(imageController, animated: true, completion: nil)
 //    }
 //    
-//    @IBAction func pause(sender: UIButton) {
-//        
-//    }
-//    
-//    @IBAction func alert(sender: UIButton) {
-//        var alertController = UIAlertController(title: "Hey there!", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
-//        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-//            self.dismissViewControllerAnimated(true, completion: nil)
-//        }))
-//        self.presentViewController(alertController, animated: true, completion: nil)
-//        
-//    }
-//
-//    @IBAction func restore(sender: UIButton) {
-//        activityIndicator.stopAnimating()
-//        
-//        //        UIApplication.sharedApplication().endIgnoringInteractionEvents()
-//    }
-//    
 //    
 //    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
 //        println("Image selected")

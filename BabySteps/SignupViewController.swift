@@ -10,6 +10,10 @@ import UIKit
 import Parse
 
 class SignupViewController: UIViewController {
+    private struct Storyboard {
+        static let UserTableSegueID = "Jump to User Table"
+    }
+    
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBOutlet weak var username: UITextField!
@@ -32,7 +36,7 @@ class SignupViewController: UIViewController {
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 if signupError == nil {
-                    // Hooray! Let them use the app now.
+                    self.performSegueWithIdentifier(Storyboard.UserTableSegueID, sender: self)
                 } else {
                     if let errorString = signupError.userInfo?["error"] as? NSString {
                         error = errorString
@@ -58,7 +62,7 @@ class SignupViewController: UIViewController {
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 if user != nil {
-                    // Do stuff after successful login.
+                    self.performSegueWithIdentifier(Storyboard.UserTableSegueID, sender: self)
                 } else {
                     if let errorString = loginError.userInfo?["error"] as? NSString {
                         error = errorString
@@ -68,6 +72,12 @@ class SignupViewController: UIViewController {
                     self.displayAlert("Could not login", error: error)
                 }
             }
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if PFUser.currentUser() != nil {
+            self.performSegueWithIdentifier(Storyboard.UserTableSegueID, sender: self)
         }
     }
     
