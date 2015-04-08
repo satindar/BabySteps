@@ -16,14 +16,9 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBAction func signup(sender: UIButton) {
-        var error = ""
-        if username.text == "" || password.text == "" {
-            error = "Please enter a usename and password"
-        }
+        var error = validateForm()
         
-        if error != "" {
-            displayAlert("Error in form", error: error)
-        } else {
+        if error == "" {
             var user = PFUser()
             user.username = username.text
             user.password = password.text
@@ -50,7 +45,33 @@ class SignupViewController: UIViewController {
         }
     }
     
-    func displayAlert(title: String, error: String) {
+    @IBAction func login(sender: UIButton) {
+        var error = validateForm()
+        
+        if error == "" {
+            displaySpinner()
+            
+            PFUser.logInWithUsernameInBackground(username.text, password: password.text) {
+                (user: PFUser!, loginError: NSError!) -> Void in
+                
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                
+                if user != nil {
+                    // Do stuff after successful login.
+                } else {
+                    if let errorString = loginError.userInfo?["error"] as? NSString {
+                        error = errorString
+                    } else {
+                        error = "Something is messed up here"
+                    }
+                    self.displayAlert("Could not login", error: error)
+                }
+            }
+        }
+    }
+    
+    private func displayAlert(title: String, error: String) {
         var alertController = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -58,7 +79,7 @@ class SignupViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func displaySpinner() {
+    private func displaySpinner() {
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -66,5 +87,14 @@ class SignupViewController: UIViewController {
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+    }
+    
+    private func validateForm() -> String {
+        var error = ""
+        if username.text == "" || password.text == "" {
+            error = "Please enter a username and password"
+            displayAlert("Error in form", error: error)
+        }
+        return error
     }
 }
