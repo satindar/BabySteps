@@ -28,6 +28,7 @@ class SignupViewController: UIViewController {
             var user = PFUser()
             user.username = username.text
             user.password = password.text
+            user["baby"] = babyName.text
             
             displaySpinner()
             

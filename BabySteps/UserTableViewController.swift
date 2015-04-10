@@ -20,7 +20,8 @@ class UserTableViewController: UITableViewController {
         var query = PFUser.query()
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             self.users.removeAll(keepCapacity: true)
-            self.users = objects.map { ($0 as PFUser).username }
+            self.users = objects.map { ($0 as PFUser).username }.filter { $0 != PFUser.currentUser().username }
+            println(PFUser.currentUser().username)
             self.tableView.reloadData()
         }
     }
@@ -46,6 +47,11 @@ class UserTableViewController: UITableViewController {
             cell.accessoryType = UITableViewCellAccessoryType.None
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            //create relationship here
+            var humanConnection = PFObject(className: "Connections")
+            humanConnection["caretaker"] = cell.textLabel?.text
+            humanConnection["parental"] = PFUser.currentUser()
+            humanConnection.save()
         }
     }
 }
