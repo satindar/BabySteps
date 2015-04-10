@@ -45,12 +45,29 @@ class UserTableViewController: UITableViewController {
         
         if cell.accessoryType == UITableViewCellAccessoryType.Checkmark {
             cell.accessoryType = UITableViewCellAccessoryType.None
+            
+            var query = PFQuery(className:"Connections")
+            query.whereKey("parental", equalTo: PFUser.currentUser().username)
+            query.whereKey("caretaker", equalTo: cell.textLabel?.text)
+            
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [AnyObject]!, error: NSError!) -> Void in
+                if error == nil {
+                    if let objects = objects as? [PFObject] {
+                        for object in objects {
+                            object.delete()
+                        }
+                    }
+                } else {
+                    println("Error: \(error) \(error.userInfo!)")
+                }
+            }
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             //create relationship here
             var humanConnection = PFObject(className: "Connections")
             humanConnection["caretaker"] = cell.textLabel?.text
-            humanConnection["parental"] = PFUser.currentUser()
+            humanConnection["parental"] = PFUser.currentUser().username
             humanConnection.save()
         }
     }
